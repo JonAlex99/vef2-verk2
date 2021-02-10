@@ -32,7 +32,7 @@ async function query(q, values = []) {
 }
 
 export async function insert(data) {
-  var fela = true
+  let fela = true;
   if (!data.checkBox) fela = false;
   const q = `
 INSERT INTO signatures

@@ -4,7 +4,7 @@
   "description": "Vefforritun 2 verkefni 2 2021",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm-run-all eslint stylelint",
     "start": "npm run sass & npm run demon",
     "eslint": "eslint ./**/*.js --fix",
     "stylelint": "stylelint ./src/styles/**/*.scss --syntax scss",
