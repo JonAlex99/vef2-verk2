@@ -58,6 +58,11 @@ form {
   }
 }
 
+.skrift--invalid input {
+  background-color: #fbb;
+  border-color: #855;
+}
+
 .error-box {
   display: flex;
   flex-direction: row;

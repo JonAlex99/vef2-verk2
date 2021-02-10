@@ -5,6 +5,7 @@ dotenv.config();
 
 const {
   DATABASE_URL: connectionString,
+  NODE_ENV: nodeEnv = 'development',
 } = process.env;
 
 if (!connectionString) {
@@ -12,16 +13,18 @@ if (!connectionString) {
   process.exit(1);
 }
 
-async function query(q, values = []) {
-  const client = new pg.Client({ connectionString });
+const ssl = nodeEnv !== 'development' ? { rejectUnauthorized: false } : false;
 
-  await client.connect();
+const pool = new pg.Pool({ connectionString, ssl });
+async function query(q, values = []) {
+  const client = await pool.connect();
 
   try {
     const result = await client.query(q, values);
 
     return result;
   } catch (err) {
+    console.error('Error selecting', err);
     throw err;
   } finally {
     await client.end();
