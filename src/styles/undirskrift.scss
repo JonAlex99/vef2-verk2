@@ -1,0 +1,67 @@
+main {
+  margin: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+form {
+  align-items: center;
+  max-width: 1000px;
+}
+
+.skrift {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+
+  label {
+    flex: 0 0 150px;
+    font-size: 1.375rem;
+    white-space: nowrap;
+  }
+
+  .checkbox {
+    flex: none;
+    font-size: 0.8rem;
+  }
+
+  input,
+  textarea {
+    border: 1px solid #888;
+    border-radius: 3px;
+    flex: 1;
+    max-width: 800px;
+    padding: 8px;
+  }
+
+  textarea {
+    flex: 1;
+    min-height: 6rem;
+  }
+
+  button {
+    background-color: #fff;
+    border: 1px solid #888;
+    border-radius: 12px;
+    font-size: 2.5rem;
+    margin: auto;
+    padding: 0.5rem;
+    transition: background-color ease-in 300ms;
+  }
+
+  button:hover {
+    background-color: #bbb;
+  }
+}
+
+.error-box {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  max-width: 800px;
+}

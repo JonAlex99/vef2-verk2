@@ -1,0 +1,82 @@
+<%- include('header') -%>
+
+  <main>
+    <section class="undirskrift">
+      <h1 class="head">
+        Undirskriftar&shy;listi
+      </h1>
+      <form method="POST" action="/">
+        <div class="skrift">
+          <label>
+            Nafn*
+          </label>
+            <input type="text" name="nafn" placeholder="Halldór Laxness" value="<%= data.nafn %>">
+        </div>
+        <div class="skrift">
+          <label>
+            Kennitala*
+          </label>
+            <input type="text" name="kt" placeholder="0000000000 eða 000000-0000" value="<%= data.kt %>">
+        </div>
+        <div class="skrift">
+          <label>
+            Athugasemd
+          </label>
+            <textarea name="ath" value="<%= data.ath %>"></textarea>
+        </div>
+        <div class="skrift">
+          <label class="checkbox">
+            <input type="checkbox" id="checkbox" name="checkBox">
+            Ekki birta nafn á lista
+          </label>
+        </div>
+        <% if (errorMessages.length > 0) { %>
+          <h3>Vandræði við undirskrift</h3>
+            <div class="error-box">
+              <ul class="errors">
+                <% errorMessages.forEach((error) => { %>
+                  <li class="error"><label for="<%= error.param %>"><%= error %></label></li>
+                <% }); %>
+              </ul>
+            </div>
+        <% } %>
+        <div class="skrift">
+          <button type="submit">Skrifa undir</button>
+        </div>
+      </form>
+    </section>
+    <hr>
+    <section class="tafla">
+      <h2 class="head">
+        Undirskriftir
+      </h2>
+      <table>
+        <tr>
+          <th>Dags</th>
+          <th>Nafn</th>
+          <th>Athugasemd</th>
+        </tr>
+        <% list.forEach((gildi)=> { %>
+          <tr>
+            <td>
+              <%= gildi.signed.toString().substring(0, 15) %>
+            </td>
+            <td>
+              <% if(!gildi.anonymous) { %>
+                <%= gildi.name %>
+                <% } else { %>
+                  <p><i>Nafnlaust</i></p>
+                <% } %>
+            </td>
+            <td class = "ath">
+              <%= gildi.comment %>
+            </td>
+          </tr>
+          <% }) %>
+      </table>
+    </section>
+  </main>
+
+
+
+  <%- include('footer') -%>
