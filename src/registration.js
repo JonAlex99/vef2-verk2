@@ -52,7 +52,7 @@ async function birtaError(req, res, next) {
 
   if (!errors.isEmpty()) {
     const list = await select();
-    const errorMessages = errors.array().map((i) => i.msg);
+    const errorMessages = errors.array();
     return res.render('index', { data, list, errorMessages });
   }
   return next();

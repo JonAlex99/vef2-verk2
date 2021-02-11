@@ -18,6 +18,12 @@ const {
 } = process.env;
 
 // TODO setja upp rest af virkni!
+function isInvalid(field, errors) {
+  return Boolean(errors.find(i => i.param === field));
+}
+
+app.locals.isInvalid = isInvalid;
+
 app.use('/', registrationRouter);
 
 function notFoundHandler(req, res, next) { // eslint-disable-line

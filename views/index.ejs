@@ -6,19 +6,19 @@
         Undirskriftar&shy;listi
       </h1>
       <form method="POST" action="/">
-        <div class="skrift">
+        <div class="skrift<%= locals.isInvalid('nafn', errorMessages) ?  ' skrift--invalid' : '' %>">
           <label>
             Nafn*
           </label>
-            <input type="text" name="nafn" placeholder="Halldór Laxness" value="<%= data.nafn %>">
+            <input type="text" name="nafn" value="<%= data.nafn %>">
         </div>
-        <div class="skrift">
+        <div class="skrift<%= locals.isInvalid('kt', errorMessages) ?  ' skrift--invalid' : '' %>">
           <label>
             Kennitala*
           </label>
             <input type="text" name="kt" placeholder="0000000000 eða 000000-0000" value="<%= data.kt %>">
         </div>
-        <div class="skrift">
+        <div class="skrift<%= locals.isInvalid('ath', errorMessages) ?  ' skrift--invalid' : '' %>">
           <label>
             Athugasemd
           </label>
@@ -35,7 +35,7 @@
             <div class="error-box">
               <ul class="errors">
                 <% errorMessages.forEach((error) => { %>
-                  <li class="error"><label for="<%= error.param %>"><%= error %></label></li>
+                  <li class="error"><label for="<%= error.param %>"><%= error.msg %></label></li>
                 <% }); %>
               </ul>
             </div>
