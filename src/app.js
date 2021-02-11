@@ -19,7 +19,7 @@ const {
 
 // TODO setja upp rest af virkni!
 function isInvalid(field, errors) {
-  return Boolean(errors.find(i => i.param === field));
+  return Boolean(errors.find((i) => i.param === field));
 }
 
 app.locals.isInvalid = isInvalid;
