@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Vefforritun 2 verkefni 2 2021",
   "main": ".eslintrc.js",
+  "type": "module",
   "scripts": {
     "test": "npm-run-all eslint stylelint",
     "start": "npm run sass & npm run demon",
@@ -10,7 +11,8 @@
     "stylelint": "stylelint ./src/styles/**/*.scss --syntax scss",
     "sass": "node-sass --source-map-embed styles.scss ./public/styles.css",
     "sass-watch": "node-sass --source-map-embed --watch --recursive styles.scss ./public/styles.css",
-    "demon": "nodemon ./src/app.js"
+    "demon": "nodemon ./src/app.js",
+    "setup": "node ./sql/setup.js"
   },
   "repository": {
     "type": "git",
